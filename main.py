@@ -134,7 +134,7 @@ if __name__ == "__main__":
     uvicorn.run(
         "main:app",  # Change "main" to your filename if different
         host="0.0.0.0",
-        port=os.getenv("PORT", 8000),
+        port=int(os.getenv("PORT", 8000)),
         reload=True,  # Enable auto-reload for development
         log_level="info"
     )
