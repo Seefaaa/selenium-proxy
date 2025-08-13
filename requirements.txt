@@ -1,0 +1,15 @@
+# FastAPI and ASGI server
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# Selenium WebDriver
+selenium==4.15.2
+
+# Optional: Additional utilities
+python-multipart==0.0.6  # For form data handling if needed
+pydantic==2.5.0  # For data validation (included with FastAPI but pinned for stability)
+
+# Development dependencies (optional)
+# pytest==7.4.3
+# pytest-asyncio==0.21.1
+# httpx==0.25.2  # For testing HTTP endpoints
