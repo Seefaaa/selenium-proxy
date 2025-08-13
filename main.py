@@ -23,33 +23,35 @@ SELENIUM_HUB_URL = os.getenv("SELENIUM_HUB_URL", "http://localhost:4444/wd/hub")
 
 def create_driver():
     """Create and configure a remote Chrome WebDriver instance"""
-    chrome_options = Options()
+    # chrome_options = Options()
 
     # Headless mode for server environments
     # chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--window-size=1920,1080")
-    chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+    # chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_argument("--disable-dev-shm-usage")
+    # chrome_options.add_argument("--disable-gpu")
+    # chrome_options.add_argument("--window-size=1920,1080")
+    # chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
 
     # Disable images and CSS for faster loading (optional)
-    prefs = {
-        "profile.managed_default_content_settings.images": 2,
-        "profile.managed_default_content_settings.stylesheets": 2
-    }
-    chrome_options.add_experimental_option("prefs", prefs)
+    # prefs = {
+    #     "profile.managed_default_content_settings.images": 2,
+    #     "profile.managed_default_content_settings.stylesheets": 2
+    # }
+    # chrome_options.add_experimental_option("prefs", prefs)
 
     # Set up desired capabilities for Chrome
-    desired_capabilities = DesiredCapabilities.CHROME.copy()
-    desired_capabilities.update(chrome_options.to_capabilities())
+    # desired_capabilities = DesiredCapabilities.CHROME.copy()
+    # desired_capabilities.update(chrome_options.to_capabilities())
 
     try:
         # Create remote WebDriver instance
         driver = webdriver.Remote(
-            command_executor=SELENIUM_HUB_URL,
-            desired_capabilities=desired_capabilities,
-            options=chrome_options
+            # command_executor=SELENIUM_HUB_URL,
+            SELENIUM_HUB_URL,
+            # desired_capabilities=desired_capabilities,
+            # options=chrome_options
+            webdriver.ChromeOptions()
         )
         driver.set_page_load_timeout(30)
         return driver
