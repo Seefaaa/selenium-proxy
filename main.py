@@ -51,7 +51,7 @@ def create_driver():
             SELENIUM_HUB_URL,
             # desired_capabilities=desired_capabilities,
             # options=chrome_options
-            webdriver.ChromeOptions()
+            options=webdriver.ChromeOptions()
         )
         driver.set_page_load_timeout(30)
         return driver
